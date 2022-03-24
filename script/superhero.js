@@ -4,7 +4,8 @@ const superheroGrid = document.querySelector('#superhero-grid');
 const searchBtn = document.querySelector('#btn-search');
 let superHeros = [];
 
-fetch(APIPath).then(response => response.json())
+fetch("https://raw.githubusercontent.com/bpeddapudi/sampleJson/main/superhero.json")
+    .then(response => response.json())
     .then((data) => {
         superHeros = data;
         updateSuperHeros(data);
