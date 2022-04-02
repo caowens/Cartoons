@@ -36,7 +36,7 @@ function filterByName() {
     let filteredArray = [];
     if(searchInput && searchInput.length){
         cartoons.forEach((cartoon) => {
-            if(cartoon.name.toLowerCase()
+            if(cartoon.title.toLowerCase()
                 .startsWith(searchInput.toLowerCase()))
                 filteredArray.push(cartoon);
         });
