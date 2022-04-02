@@ -1,33 +1,33 @@
 const APIPath = "https://api.sampleapis.com/cartoons/cartoons2D.json";
 const numberOfResults = 9;
-const superheroGrid = document.querySelector('#superhero-grid');
+const cartoonGrid = document.querySelector('#cartoon-grid');
 const searchBtn = document.querySelector('#btn-search');
-let superHeros = [];
+let cartoons = [];
 
 fetch("hhttps://api.sampleapis.com/cartoons/cartoons2D.json")
     .then(response => response.json())
     .then((data) => {
-        superHeros = data;
-        updateSuperHeros(data);
+        cartoons = data;
+        updateCartoons(data);
     });
 
-function updateSuperHeros(superHeros) {
+function updateCartoons(cartoons) {
     let allCardsDom = '';
-    superHeros.forEach((hero)=>{
+    cartoons.forEach((cartoon)=>{
         const cardTemplate = 
             `<div class="col">
                 <div class="card">
-                    <img src="${hero.images.sm}"
+                    <img src="${cartoon.images.sm}"
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">${hero.name}</h5>
-                        <p class="card-text">${hero.work.occupation}</p>
+                        <h5 class="card-title">${cartoon.name}</h5>
+                        <p class="card-text">${cartoon.work.occupation}</p>
                     </div>
                 </div>
             </div>`;
          allCardsDom +=cardTemplate;
     });
-    superheroGrid.innerHTML = allCardsDom;
+    cartoonGrid.innerHTML = allCardsDom;
 }
 
 
@@ -35,13 +35,13 @@ function filterByName() {
     const searchInput = document.querySelector('#search-input').value;
     let filteredArray = [];
     if(searchInput && searchInput.length){
-        superHeros.forEach((hero) => {
-            if(hero.name.toLowerCase()
+        cartoons.forEach((cartoon) => {
+            if(cartoon.name.toLowerCase()
                 .startsWith(searchInput.toLowerCase()))
-                filteredArray.push(hero);
+                filteredArray.push(cartoon);
         });
     }else {
-        return superHeros;
+        return cartoons;
     }
     console.log({searchInput});
     return filteredArray;
@@ -50,5 +50,5 @@ function filterByName() {
 searchBtn.addEventListener('click',(e)=>{
     console.log('Search button clicked...');
     let filteredList = filterByName();
-    updateSuperHeros(filteredList);
+    updateCartoons(filteredList);
 });
