@@ -4,7 +4,7 @@ const cartoonGrid = document.querySelector('#cartoon-grid');
 const searchBtn = document.querySelector('#btn-search');
 let cartoons = [];
 
-fetch("hhttps://api.sampleapis.com/cartoons/cartoons2D")
+fetch("https://api.sampleapis.com/cartoons/cartoons2D")
     .then(response => response.json())
     .then((data) => {
         cartoons = data;
@@ -17,11 +17,11 @@ function updateCartoons(cartoons) {
         const cardTemplate = 
             `<div class="col">
                 <div class="card">
-                    <img src="${cartoon.images.sm}"
+                    <img src="${cartoon.image}"
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">${cartoon.name}</h5>
-                        <p class="card-text">${cartoon.work.occupation}</p>
+                        <h5 class="card-title">${cartoon.title}</h5>
+                        <p class="card-text">${cartoon.genre}</p>
                     </div>
                 </div>
             </div>`;
