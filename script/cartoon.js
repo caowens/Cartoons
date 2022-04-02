@@ -1,10 +1,10 @@
-const APIPath = "https://api.sampleapis.com/cartoons/cartoons2D.json";
+const APIPath = "https://api.sampleapis.com/cartoons/cartoons2D";
 const numberOfResults = 9;
 const cartoonGrid = document.querySelector('#cartoon-grid');
 const searchBtn = document.querySelector('#btn-search');
 let cartoons = [];
 
-fetch("hhttps://api.sampleapis.com/cartoons/cartoons2D.json")
+fetch("hhttps://api.sampleapis.com/cartoons/cartoons2D")
     .then(response => response.json())
     .then((data) => {
         cartoons = data;
