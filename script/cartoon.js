@@ -37,7 +37,7 @@ function filterByName() {
     if(searchInput && searchInput.length){
         cartoons.forEach((cartoon) => {
             if(cartoon.title.toLowerCase()
-                .startsWith(searchInput.toLowerCase()))
+                .includes(searchInput.toLowerCase()))
                 filteredArray.push(cartoon);
         });
     }else {
